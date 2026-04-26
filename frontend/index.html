@@ -1,116 +1,105 @@
+<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Resume Builder</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Smart Resume Builder</title>
+
+<link rel="stylesheet" href="style.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 </head>
+
 <body>
 
 <!-- Navbar -->
-<nav>
-  <h2>Smart Resume Builder</h2>
-
-  <ul>
-    <li><a href="#">Home</a></li>
-    <li><a href="#templates">Templates</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
+<nav class="navbar">
+    <div class="logo">Smart Resume Builder</div>
+    <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Templates</a></li>
+        <li><a href="#">Contact</a></li>
+    </ul>
 </nav>
 
 <!-- Hero -->
 <section class="hero">
-  <h1>Create Professional Resume in Minutes</h1>
-  <p>Build, Preview and Download Resume Easily</p>
+    <h1>Create Professional Resume in Minutes</h1>
+    <p>Build Modern ATS Friendly Resume with Live Preview</p>
 </section>
 
-<!-- Form -->
-<section class="form-section">
+<!-- Main Layout -->
+<section class="main-container">
 
-  <h2>Create Resume</h2>
+    <!-- Form -->
+    <div class="form-box">
+        <h2>Resume Details</h2>
 
-  <form>
+        <input type="text" id="name" placeholder="Full Name">
+        <input type="text" id="title" placeholder="Professional Title">
+        <input type="email" id="email" placeholder="Email">
+        <input type="text" id="phone" placeholder="Phone Number">
+        <input type="text" id="linkedin" placeholder="LinkedIn URL">
+        <input type="text" id="github" placeholder="GitHub URL">
 
-    <input type="text" placeholder="Full Name" id="name">
+        <textarea id="summary" placeholder="Professional Summary"></textarea>
+        <textarea id="skills" placeholder="Skills (HTML, CSS, Java, SQL)"></textarea>
+        <textarea id="education" placeholder="Education"></textarea>
+        <textarea id="experience" placeholder="Experience"></textarea>
+        <textarea id="projects" placeholder="Projects"></textarea>
 
-    <input type="email" placeholder="Email" id="email">
+        <button onclick="generateResume()">Live Preview</button>
+        <button onclick="downloadPDF()">Download PDF</button>
+    </div>
 
-    <input type="text" placeholder="Phone Number" id="phone">
+    <!-- Resume Preview -->
+    <div class="preview-box" id="resume">
 
-    <input type="text" placeholder="Skills" id="skills">
+        <div class="top-section">
+            <h1 id="pname">Your Name</h1>
+            <h3 id="ptitle">Web Developer</h3>
 
-    <textarea placeholder="Education" id="education"></textarea>
+            <p id="pcontact">
+                email@example.com | 9876543210
+            </p>
 
-    <textarea placeholder="Experience" id="experience"></textarea>
+            <p id="plinks">
+                linkedin.com | github.com
+            </p>
+        </div>
 
-    <select id="template">
-      <option value="blue">Blue Template</option>
-      <option value="black">Black Template</option>
-      <option value="green">Green Template</option>
-    </select>
+        <div class="section">
+            <h2>Profile Summary</h2>
+            <p id="psummary"></p>
+        </div>
 
-    <button type="button" onclick="generateResume()">
-      Preview Resume
-    </button>
+        <div class="section">
+            <h2>Skills</h2>
+            <p id="pskills"></p>
+        </div>
 
-  </form>
+        <div class="section">
+            <h2>Education</h2>
+            <p id="peducation"></p>
+        </div>
 
-</section>
+        <div class="section">
+            <h2>Experience</h2>
+            <p id="pexperience"></p>
+        </div>
 
-<!-- Preview -->
-<section class="preview-section" id="templates">
+        <div class="section">
+            <h2>Projects</h2>
+            <p id="pprojects"></p>
+        </div>
 
-  <h2>Resume Preview</h2>
-
-  <div class="resume-box">
-
-    <h1 id="pname"></h1>
-
-    <p id="pemail"></p>
-
-    <p id="pphone"></p>
-
-    <h3>Skills</h3>
-    <p id="pskills"></p>
-
-    <h3>Education</h3>
-    <p id="pedu"></p>
-
-    <h3>Experience</h3>
-    <p id="pexp"></p>
-
-  </div>
-
-  <button onclick="downloadPDF()">
-    Download PDF
-  </button>
-
-</section>
-
-<!-- Contact -->
-<section class="form-section" id="contact">
-
-  <h2>Contact Us</h2>
-
-  <input type="text" placeholder="Your Name">
-
-  <input type="email" placeholder="Your Email">
-
-  <textarea placeholder="Your Message"></textarea>
-
-  <button>Send Message</button>
+    </div>
 
 </section>
-
-<!-- Footer -->
-<footer>
-  <p>© 2026 Smart Resume Builder | Designed by Shilpa</p>
-</footer>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 
 <script src="script.js"></script>
-
 </body>
 </html>

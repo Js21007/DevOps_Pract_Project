@@ -1,127 +1,54 @@
-function generateResume() {
+// script.js
 
-  document.getElementById("pname").innerText =
-    document.getElementById("name").value;
+function generateResume(){
 
-  document.getElementById("pemail").innerText =
-    document.getElementById("email").value;
+document.getElementById("pname").innerText =
+document.getElementById("name").value || "Your Name";
 
-  document.getElementById("pphone").innerText =
-    document.getElementById("phone").value;
+document.getElementById("ptitle").innerText =
+document.getElementById("title").value || "Professional Title";
 
-  document.getElementById("pskills").innerText =
-    document.getElementById("skills").value;
+document.getElementById("pcontact").innerText =
+document.getElementById("email").value + " | " +
+document.getElementById("phone").value;
 
-  document.getElementById("pedu").innerText =
-    document.getElementById("education").value;
+document.getElementById("plinks").innerText =
+document.getElementById("linkedin").value + " | " +
+document.getElementById("github").value;
 
-  document.getElementById("pexp").innerText =
-    document.getElementById("experience").value;
+document.getElementById("psummary").innerText =
+document.getElementById("summary").value;
 
-  let template = document.getElementById("template").value;
+document.getElementById("pskills").innerText =
+document.getElementById("skills").value;
 
-  let color = "#007bff";
-  let bg = "#ffffff";
-  let border = "#007bff";
+document.getElementById("peducation").innerText =
+document.getElementById("education").value;
 
-  if(template === "black"){
-    color = "#000000";
-    bg = "#f2f2f2";
-    border = "#000000";
-  }
+document.getElementById("pexperience").innerText =
+document.getElementById("experience").value;
 
-  if(template === "green"){
-    color = "#28a745";
-    bg = "#f0fff4";
-    border = "#28a745";
-  }
+document.getElementById("pprojects").innerText =
+document.getElementById("projects").value;
 
-  document.getElementById("pname").style.color = color;
-
-  let headings = document.querySelectorAll(".resume-box h3");
-
-  headings.forEach(function(item){
-    item.style.color = color;
-  });
-
-  let box = document.querySelector(".resume-box");
-
-  box.style.border = "3px solid " + border;
-  box.style.background = bg;
-  box.style.padding = "20px";
-  box.style.borderRadius = "10px";
 }
 
-function downloadPDF() {
 
-  const { jsPDF } = window.jspdf;
-  const doc = new jsPDF();
+function downloadPDF(){
 
-  let y = 20;
-  let template = document.getElementById("template").value;
+generateResume();
 
-  let color = [0, 123, 255]; // blue
+const { jsPDF } = window.jspdf;
+const doc = new jsPDF();
 
-  if(template === "black"){
-    color = [0, 0, 0];
-  }
+doc.html(document.getElementById("resume"),{
+    callback:function(doc){
+        doc.save("Resume.pdf");
+    },
+    x:10,
+    y:10,
+    width:190,
+    windowWidth:900
+});
 
-  if(template === "green"){
-    color = [0, 150, 80];
-  }
-
-  // Name
-  doc.setTextColor(...color);
-  doc.setFont("helvetica", "bold");
-  doc.setFontSize(22);
-  doc.text(document.getElementById("pname").innerText, 20, y);
-
-  y += 8;
-
-  doc.setDrawColor(...color);
-  doc.line(20, y, 190, y);
-
-  y += 10;
-
-  doc.setTextColor(0,0,0);
-  doc.setFontSize(12);
-  doc.setFont("helvetica", "normal");
-
-  doc.text("Email: " + document.getElementById("pemail").innerText, 20, y);
-  y += 8;
-
-  doc.text("Phone: " + document.getElementById("pphone").innerText, 20, y);
-  y += 12;
-
-  doc.setTextColor(...color);
-  doc.setFont("helvetica", "bold");
-  doc.text("Skills", 20, y);
-  y += 8;
-
-  doc.setTextColor(0,0,0);
-  doc.setFont("helvetica", "normal");
-  doc.text(document.getElementById("pskills").innerText, 20, y);
-  y += 12;
-
-  doc.setTextColor(...color);
-  doc.setFont("helvetica", "bold");
-  doc.text("Education", 20, y);
-  y += 8;
-
-  doc.setTextColor(0,0,0);
-  let edu = doc.splitTextToSize(document.getElementById("pedu").innerText,170);
-  doc.text(edu,20,y);
-
-  y += edu.length * 8 + 8;
-
-  doc.setTextColor(...color);
-  doc.setFont("helvetica", "bold");
-  doc.text("Experience",20,y);
-  y += 8;
-
-  doc.setTextColor(0,0,0);
-  let exp = doc.splitTextToSize(document.getElementById("pexp").innerText,170);
-  doc.text(exp,20,y);
-
-  doc.save("resume.pdf");
 }
