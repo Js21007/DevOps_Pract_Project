@@ -1,0 +1,170 @@
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  font-family:Arial, sans-serif;
+  background:linear-gradient(135deg,#eef2f7,#d9e4f5);
+}
+
+/* Navbar */
+nav{
+  background:#0d6efd;
+  color:white;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:18px 40px;
+  box-shadow:0 4px 10px rgba(0,0,0,0.15);
+}
+
+nav h2{
+  font-size:28px;
+}
+
+nav ul{
+  list-style:none;
+  display:flex;
+  gap:25px;
+}
+
+nav a{
+  color:white;
+  text-decoration:none;
+  font-weight:bold;
+}
+
+/* Hero */
+.hero{
+  text-align:center;
+  padding:60px 20px 30px;
+}
+
+.hero h1{
+  font-size:42px;
+  color:#111;
+  margin-bottom:10px;
+}
+
+.hero p{
+  font-size:18px;
+  color:#555;
+}
+
+/* Sections */
+.form-section,
+.preview-section{
+  width:70%;
+  margin:30px auto;
+  background:white;
+  padding:35px;
+  border-radius:18px;
+  box-shadow:0 10px 30px rgba(0,0,0,0.08);
+}
+
+/* Headings */
+.form-section h2,
+.preview-section h2{
+  text-align:center;
+  margin-bottom:25px;
+  color:#0d6efd;
+}
+
+/* Inputs */
+input,
+textarea,
+select{
+  width:100%;
+  padding:14px;
+  margin:10px 0;
+  border:1px solid #d0d0d0;
+  border-radius:10px;
+  font-size:15px;
+}
+
+textarea{
+  height:110px;
+  resize:none;
+}
+
+/* Buttons */
+button{
+  width:100%;
+  padding:14px;
+  margin-top:12px;
+  background:#0d6efd;
+  color:white;
+  border:none;
+  border-radius:10px;
+  font-size:16px;
+  font-weight:bold;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+button:hover{
+  background:#0b5ed7;
+  transform:translateY(-2px);
+}
+
+/* Resume Box */
+.resume-box{
+  background:#ffffff;
+  padding:25px;
+  border-radius:15px;
+  box-shadow:0 5px 18px rgba(0,0,0,0.08);
+}
+
+.resume-box h1{
+  font-size:34px;
+  margin-bottom:12px;
+}
+
+.resume-box p{
+  margin:6px 0;
+  color:#333;
+}
+
+.resume-box h3{
+  margin-top:18px;
+  margin-bottom:6px;
+}
+
+/* Mobile */
+@media(max-width:768px){
+
+  nav{
+    flex-direction:column;
+    gap:10px;
+  }
+
+  nav ul{
+    flex-direction:column;
+    gap:10px;
+  }
+
+  .form-section,
+  .preview-section{
+    width:92%;
+  }
+
+  .hero h1{
+    font-size:30px;
+  }
+}
+
+footer{
+  background:#0d6efd;
+  color:white;
+  text-align:center;
+  padding:18px;
+  margin-top:30px;
+  font-size:15px;
+}
+
+#contact input,
+#contact textarea{
+  margin-bottom:15px;
+}

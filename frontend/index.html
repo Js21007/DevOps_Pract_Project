@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resume Builder</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Navbar -->
+<nav>
+  <h2>Smart Resume Builder</h2>
+
+  <ul>
+    <li><a href="#">Home</a></li>
+    <li><a href="#templates">Templates</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- Hero -->
+<section class="hero">
+  <h1>Create Professional Resume in Minutes</h1>
+  <p>Build, Preview and Download Resume Easily</p>
+</section>
+
+<!-- Form -->
+<section class="form-section">
+
+  <h2>Create Resume</h2>
+
+  <form>
+
+    <input type="text" placeholder="Full Name" id="name">
+
+    <input type="email" placeholder="Email" id="email">
+
+    <input type="text" placeholder="Phone Number" id="phone">
+
+    <input type="text" placeholder="Skills" id="skills">
+
+    <textarea placeholder="Education" id="education"></textarea>
+
+    <textarea placeholder="Experience" id="experience"></textarea>
+
+    <select id="template">
+      <option value="blue">Blue Template</option>
+      <option value="black">Black Template</option>
+      <option value="green">Green Template</option>
+    </select>
+
+    <button type="button" onclick="generateResume()">
+      Preview Resume
+    </button>
+
+  </form>
+
+</section>
+
+<!-- Preview -->
+<section class="preview-section" id="templates">
+
+  <h2>Resume Preview</h2>
+
+  <div class="resume-box">
+
+    <h1 id="pname"></h1>
+
+    <p id="pemail"></p>
+
+    <p id="pphone"></p>
+
+    <h3>Skills</h3>
+    <p id="pskills"></p>
+
+    <h3>Education</h3>
+    <p id="pedu"></p>
+
+    <h3>Experience</h3>
+    <p id="pexp"></p>
+
+  </div>
+
+  <button onclick="downloadPDF()">
+    Download PDF
+  </button>
+
+</section>
+
+<!-- Contact -->
+<section class="form-section" id="contact">
+
+  <h2>Contact Us</h2>
+
+  <input type="text" placeholder="Your Name">
+
+  <input type="email" placeholder="Your Email">
+
+  <textarea placeholder="Your Message"></textarea>
+
+  <button>Send Message</button>
+
+</section>
+
+<!-- Footer -->
+<footer>
+  <p>© 2026 Smart Resume Builder | Designed by Shilpa</p>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+<script src="script.js"></script>
+
+</body>
+</html>
